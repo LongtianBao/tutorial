@@ -5,7 +5,7 @@ from serial import Serial
 from serial.tools.list_ports import comports
 from tkinter.messagebox import showerror
 
-from threading import Thread, Lock # we'll use Lock later ;)
+from threading import Thread, Lock
 
 def detached_callback(f):
     return lambda *args, **kwargs: Thread(target=f, args=args, kwargs=kwargs).start()
@@ -17,19 +17,7 @@ MOTOR_STOP: int = 0x03
 MOTOR_SET_SPEED: int = 0x04
 
 with Serial('/dev/cu.usbmodem101', 9600) as ser:
-    # ser.write(bytes([0x1]))
-    # temp = ser.read()
     print(0)
-    # print(bytes([0xaa]))
-    # print(temp == bytes([0xaa]))
-
-    # ser.write(bytes([0x0]))
-    # print(ser.read() == bytes([0xaa]))
-
-    # ser.write(bytes([0x2]))
-    # print(temp)
-    # print(bytes([0xaa]))
-    # print(ser.read() == bytes([0xaa]))
 
 
 def detached_callback(f):
